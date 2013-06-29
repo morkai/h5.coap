@@ -4,6 +4,17 @@ Implementation of the Constrained Application Protocol (CoAP) client for node.js
 
 [![Build Status](https://travis-ci.org/morkai/h5.coap.png?branch=master)](https://travis-ci.org/morkai/h5.coap)
 
+Implemented client-side features:
+
+  - [draft-ietf-core-coap-18](http://tools.ietf.org/html/draft-ietf-core-coap-18)
+  - [draft-ietf-core-block-12](http://tools.ietf.org/html/draft-ietf-core-block-12)
+    - Block1 + Block2 (server initiative)
+  - [draft-ietf-core-observe-08](http://tools.ietf.org/html/draft-ietf-core-observe-08)
+    - Observe + Block2 (server initiative)
+    - Re-registration after a Max-Age expiration
+    - Re-registration after a blockwise timeout
+  - See the [test/functional/](test/functional/) directory for a list of tested scenarios.
+
 ## Example
 
 ```
@@ -35,7 +46,7 @@ req.on('response', function(res)
 
 ## TODO
 
-  - Tests
+  - More tests
   - Readme
   - Documentation
   - npm publish
