@@ -21,6 +21,7 @@
     "h5.buffers": "~0.1.1"
   },
   "devDependencies": {
+    "deep-equal": "~0.0.0",
     "should": "~1.2.2",
     "sinon": "~1.7.3",
     "grunt": "~0.4.1",
