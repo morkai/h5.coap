@@ -1,0 +1,37 @@
+{
+  "name": "h5.coap",
+  "version": "0.0.0",
+  "description": "Implementation of the Constrained Application Protocol (CoAP) client for node.js.",
+  "keywords": ["h5", "coap", "protocol"],
+  "license": "MIT",
+  "homepage": "https://github.com/morkai/h5.coap",
+  "author": {
+    "name": "Łukasz Walukiewicz",
+    "email": "lukasz@walukiewicz.eu",
+    "url": "http://lukasz.walukiewicz.eu/"
+  },
+  "bugs": "https://github.com/morkai/h5.coap/issues",
+  "repository": {
+    "type": "git",
+    "url":  "http://github.com/morkai/h5.coap.git"
+  },
+  "engine": ["node ~0.10.10"],
+  "main": "./lib/index",
+  "dependencies": {
+    "h5.buffers": "~0.1.1"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "sinon": "~1.7.3",
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-istanbul": "~0.2.1",
+    "grunt-env": "~0.4.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
