@@ -1,0 +1,10 @@
+.idea/
+build/
+example/
+node_modules/
+test/
+.gitignore
+.npmignore
+.jshintrc
+.travis.yml
+Gruntfile.js
