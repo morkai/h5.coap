@@ -170,34 +170,4 @@ describe("BlockOption", function()
       new BlockOption(-1, 0, false, 0).toString().should.not.match(/Block1|Block2/);
     });
   });
-
-  describe("adjustToSize", function()
-  {
-    it("should adjust 0,false,6 to 7,false,3", function()
-    {
-      var blockOption = new BlockOption(-1, 0, false, 6);
-
-      blockOption.adjustToSize(128);
-
-      blockOption.should.be.eql(new BlockOption(-1, 7, false, 3));
-    });
-
-    it("should adjust 10,false,3 to 1,false,6", function()
-    {
-      var blockOption = new BlockOption(-1, 10, false, 3);
-
-      blockOption.adjustToSize(1024);
-
-      blockOption.should.be.eql(new BlockOption(-1, 1, false, 6));
-    });
-
-    it("should 10,false,6 to 703,false,0", function()
-    {
-      var blockOption = new BlockOption(-1, 10, false, 6);
-
-      blockOption.adjustToSize(16);
-
-      blockOption.should.be.eql(new BlockOption(-1, 703, false, 0));
-    });
-  });
 });
