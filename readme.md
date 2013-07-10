@@ -18,7 +18,7 @@ Implemented client-side features:
 ## Example
 
 ```
-npm install h5.coap h5.linkformat
+npm install git://github.com/morkai/h5.coap git://github.com/morkai/h5.linkformat
 ```
 
 ```js
