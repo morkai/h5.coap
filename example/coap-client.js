@@ -13,7 +13,7 @@ args.shift();
 
 if (args.length === 0)
 {
-  console.log('Usage: node client.js [options] uri [< payload-file]');
+  console.log('Usage: node coap-client.js [options] uri [< payload-file]');
   console.log();
   console.log('Request options:');
   console.log(' --type:          CON (default) or NON');
