@@ -10,6 +10,33 @@ var EndpointAddress = require(helpers.LIB_DIR + '/EndpointAddress');
 
 describe("EndpointAddress", function()
 {
+  var expandedIpv6 = '2222:0000:0000:0000:0000:0000:0000:0003';
+  var expandTests = {
+    '::': '0000:0000:0000:0000:0000:0000:0000:0000',
+    '1::': '0001:0000:0000:0000:0000:0000:0000:0000',
+    '::1': '0000:0000:0000:0000:0000:0000:0000:0001',
+    '1::2': '0001:0000:0000:0000:0000:0000:0000:0002',
+    '1:2::2': '0001:0002:0000:0000:0000:0000:0000:0002',
+    '1111::2222': '1111:0000:0000:0000:0000:0000:0000:2222',
+    '111:02::3': '0111:0002:0000:0000:0000:0000:0000:0003',
+    '1000:100:10:1::': '1000:0100:0010:0001:0000:0000:0000:0000',
+    '::0:00:000:0000:1234': '0000:0000:0000:0000:0000:0000:0000:1234',
+    '1:2:3:4:5:6:7:8': '0001:0002:0003:0004:0005:0006:0007:0008',
+    '1111:2222:3333:4444:5555:6666:7777:8888': '1111:2222:3333:4444:5555:6666:7777:8888'
+  };
+
+  Object.keys(expandTests).forEach(function(input)
+  {
+    var expected = expandTests[input];
+
+    it("should expand [" + input + "] to [" + expected + "]", function()
+    {
+      var actual = new EndpointAddress(input).getAddress();
+
+      actual.should.be.equal(expected);
+    });
+  });
+
   describe("toString", function()
   {
     it("should not include a default port for IPv4 addresses", function()
@@ -22,7 +49,7 @@ describe("EndpointAddress", function()
 
     it("should not include a default port for IPv6 addresses", function()
     {
-      var expected = '[2222::3]';
+      var expected = '[' + expandedIpv6 + ']';
       var actual = new EndpointAddress('2222::3').toString();
 
       actual.should.be.equal(expected);
@@ -38,7 +65,7 @@ describe("EndpointAddress", function()
 
     it("should not include a default port for IPv6 addresses", function()
     {
-      var expected = '[2222::3]:1337';
+      var expected = '[' + expandedIpv6 + ']:1337';
       var actual = new EndpointAddress('2222::3', 1337).toString();
 
       actual.should.be.equal(expected);
@@ -65,7 +92,7 @@ describe("EndpointAddress", function()
 
     it("should not enclose an IPv6 address in square brackets", function()
     {
-      var expected = {address: '2222::3', port: 1337};
+      var expected = {address: expandedIpv6, port: 1337};
       var actual = new EndpointAddress('2222::3', 1337).toJSON();
 
       actual.should.be.eql(expected);
